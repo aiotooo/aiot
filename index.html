@@ -73,6 +73,9 @@
       text-shadow: 0 0 15px rgba(0, 255, 157, 0.2);
       min-height: 4rem;
       font-family: inherit;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .clickable-title {
@@ -99,8 +102,7 @@
       height: 1.2rem;
       background: #00ff9d;
       animation: blink 1.5s step-end infinite;
-      vertical-align: middle;
-      margin-left: 2px;
+      margin-left: 6px;  /* 增加左边距，让光标和文字分开 */
       box-shadow: 0 0 5px rgba(0, 255, 157, 0.3);
     }
 
@@ -126,14 +128,13 @@
 
 <script>
 (function() {
-    // 目标链接简单混淆（只保护这个）
+    // 目标链接简单混淆
     const _0x8d3a = ['68', '74', '74', '70', '73', '3a', '2f', '2f', '77', '77', '77', '2e', '69', '6e', '74', '75', '7a', '2e', '63', '6f', '6d', '2f'];
     let targetUrl = '';
     for (let i = 0; i < _0x8d3a.length; i++) {
         targetUrl += String.fromCharCode(parseInt(_0x8d3a[i], 16));
     }
     
-    // 正常显示的文字（不做混淆，避免乱码）
     const mainText = 'AioT.ooo';
     const mainCharDelay = 180;
     
@@ -151,7 +152,6 @@
         { type: 'char', text: '义', delay: 420 }
     ];
     
-    // 防开发者工具检测
     function detectDevTools() {
         let startTime = performance.now();
         debugger;
@@ -164,13 +164,11 @@
     
     setInterval(detectDevTools, 3000);
     
-    // 禁用右键菜单
     document.addEventListener('contextmenu', function(e) {
         e.preventDefault();
         return false;
     });
     
-    // 禁用 F12 和快捷键
     document.addEventListener('keydown', function(e) {
         if (e.key === 'F12' || 
             (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'J' || e.key === 'j' || e.key === 'C' || e.key === 'c')) ||
@@ -180,7 +178,6 @@
         }
     });
     
-    // 控制台清空
     setInterval(function() {
         console.clear();
     }, 1000);
