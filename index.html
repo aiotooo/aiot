@@ -1,26 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AIoT.ooo · 连接智能</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  
+  <!-- ========== SEO 优化标签（增强版） ========== -->
+  <title>AIoT.ooo - 人工智能物联网平台 | 连接智能未来</title>
+  <meta name="description" content="AIoT.ooo专注于人工智能物联网(AIoT)领域，提供边缘计算网关、AI视觉识别、设备云管理平台等一站式解决方案，助力企业数字化转型。">
+  <meta name="keywords" content="AIoT,人工智能物联网,物联网平台,边缘计算,智能硬件,AIoT解决方案,智慧城市,工业物联网">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="AIoT.ooo">
+  <meta name="copyright" content="AIoT.ooo">
+  <link rel="canonical" href="https://www.aiot.ooo/">
+  
+  <!-- 结构化数据 Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "AIoT.ooo",
+    "url": "https://www.aiot.ooo/",
+    "description": "人工智能物联网(AIoT)专业平台，提供智能硬件、边缘计算与AI算法一站式解决方案",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.aiot.ooo/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      user-select: none;
     }
 
     body {
       background: #000000;
+      font-family: 'SF Mono', 'Fira Code', 'Monaco', 'Cascadia Code', monospace;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* 主视觉区域 - 全屏高度 */
+    .hero {
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      margin: 0;
-      font-family: 'SF Mono', 'Fira Code', 'Monaco', 'Cascadia Code', monospace;
-      overflow: hidden;
+      min-height: 100vh;
       position: relative;
+      z-index: 2;
     }
 
     .glow-bg {
@@ -32,6 +63,7 @@
       z-index: 0;
       background: radial-gradient(circle at 50% 50%, rgba(30, 30, 35, 0.12) 0%, #000000 80%);
       animation: breathe 20s ease-in-out infinite alternate;
+      pointer-events: none;
     }
 
     @keyframes breathe {
@@ -64,6 +96,12 @@
       padding-left: 2rem;
     }
 
+    .title-link {
+      text-decoration: none;
+      display: inline-block;
+      cursor: pointer;
+    }
+
     h1 {
       color: #00ff9d;
       font-size: 3rem;
@@ -73,27 +111,15 @@
       text-shadow: 0 0 15px rgba(0, 255, 157, 0.2);
       min-height: 4rem;
       font-family: inherit;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      transition: text-shadow 0.2s ease, color 0.2s ease;
+      display: inline-flex;
+      align-items: baseline;
+      gap: 20px;
     }
 
-    .clickable-title {
-      display: inline-block;
-      cursor: pointer;
-      text-decoration: none;
-      color: #00ff9d;
-    }
-
-    .clickable-title:hover {
-      text-shadow: 0 0 20px rgba(0, 255, 157, 0.6);
-    }
-
-    p {
-      color: #ffffff;
-      font-size: 1.2rem;
-      margin-top: 0.5rem;
-      font-family: inherit;
+    .title-link:hover h1 {
+      text-shadow: 0 0 22px rgba(0, 255, 157, 0.9), 0 0 8px #00ff9d;
+      color: #ccffea;
     }
 
     .cursor {
@@ -102,13 +128,191 @@
       height: 1.2rem;
       background: #00ff9d;
       animation: blink 1.5s step-end infinite;
-      margin-left: 6px;  /* 增加左边距，让光标和文字分开 */
+      vertical-align: middle;
       box-shadow: 0 0 5px rgba(0, 255, 157, 0.3);
+      transition: box-shadow 0.2s, background 0.2s;
+      margin-left: 0;
+    }
+
+    .title-link:hover .cursor {
+      box-shadow: 0 0 12px #00ff9d;
+      background: #ccffea;
     }
 
     @keyframes blink {
       0%, 100% { opacity: 1; }
       50% { opacity: 0; }
+    }
+
+    .subtitle {
+      color: #ffffff;
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+      font-family: inherit;
+    }
+
+    /* ========== SEO 内容区域 - 对搜索引擎友好，同时保持视觉美观 ========== */
+    .seo-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 2rem 100px;
+      color: #cccccc;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      border-top: 1px solid rgba(0, 255, 157, 0.2);
+      background: linear-gradient(to bottom, rgba(0,0,0,0.8), #000000);
+    }
+
+    .seo-content h2 {
+      color: #00ff9d;
+      font-size: 1.8rem;
+      margin: 2rem 0 1rem 0;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    }
+
+    .seo-content h2:first-of-type {
+      margin-top: 0;
+    }
+
+    .seo-content h3 {
+      color: #88ffcc;
+      font-size: 1.3rem;
+      margin: 1.5rem 0 0.8rem 0;
+      font-weight: 500;
+    }
+
+    .seo-content p {
+      line-height: 1.7;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      color: #dddddd;
+    }
+
+    .seo-content ul, .seo-content ol {
+      margin: 1rem 0 1rem 2rem;
+      line-height: 1.7;
+    }
+
+    .seo-content li {
+      margin: 0.5rem 0;
+      color: #dddddd;
+    }
+
+    .seo-content a {
+      color: #00ff9d;
+      text-decoration: none;
+      border-bottom: 1px dotted rgba(0, 255, 157, 0.4);
+      transition: all 0.2s;
+    }
+
+    .seo-content a:hover {
+      color: #ccffea;
+      border-bottom-color: #00ff9d;
+    }
+
+    .seo-content .highlight {
+      color: #00ff9d;
+      font-weight: 500;
+    }
+
+    .seo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .seo-card {
+      background: rgba(20, 20, 25, 0.7);
+      border: 1px solid rgba(0, 255, 157, 0.2);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .seo-card:hover {
+      border-color: rgba(0, 255, 157, 0.5);
+      background: rgba(30, 30, 35, 0.8);
+    }
+
+    .seo-card h3 {
+      margin-top: 0;
+      color: #00ff9d;
+    }
+
+    .seo-card p {
+      font-size: 0.9rem;
+      margin-bottom: 0;
+    }
+
+    .tech-badge {
+      display: inline-block;
+      background: rgba(0, 255, 157, 0.15);
+      color: #00ff9d;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin: 0.25rem 0.25rem 0 0;
+      font-family: monospace;
+    }
+
+    .footer-note {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.8rem;
+      color: #888;
+    }
+
+    /* 移动端适配 */
+    @media (max-width: 768px) {
+      .container {
+        padding-left: 1rem;
+        border-left-width: 1.5px;
+      }
+      h1 {
+        font-size: 2rem;
+        gap: 12px;
+      }
+      .cursor {
+        width: 6px;
+        height: 1rem;
+      }
+      .subtitle {
+        font-size: 1rem;
+      }
+      .seo-content {
+        padding: 50px 1.2rem 70px;
+      }
+      .seo-content h2 {
+        font-size: 1.5rem;
+      }
+      .seo-grid {
+        gap: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.6rem;
+        gap: 8px;
+      }
+      .container {
+        padding-left: 0.8rem;
+      }
+    }
+
+    .anti-bot {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+      user-select: none;
+      height: 0;
+      overflow: hidden;
+      width: 0;
     }
   </style>
 </head>
@@ -117,145 +321,220 @@
 <div class="glow-bg"></div>
 <div class="glow-bg2"></div>
 
-<div class="container">
-  <h1 id="typingTitle">
-    <span id="clickableTitle" class="clickable-title"></span><span class="cursor" id="cursor"></span>
-  </h1>
-  <p id="subLine">
-    <span id="subPrefix"></span><span id="subText"></span>
-  </p>
+<!-- 主视觉区域 -->
+<div class="hero">
+  <div class="container">
+    <a href="https://www.intuz.com/" class="title-link" target="_blank" rel="noopener noreferrer">
+      <h1>
+        <span id="textSpan"></span>
+        <span class="cursor" id="cursor"></span>
+      </h1>
+    </a>
+    <div class="subtitle">
+      <span id="subPrefix"></span><span id="subText"></span>
+    </div>
+  </div>
+</div>
+
+<!-- ========== SEO 友好内容区域：帮助搜索引擎理解网站主题 ========== -->
+<div class="seo-content">
+  <h2>🤖 什么是 AIoT？</h2>
+  <p><strong class="highlight">人工智能物联网（AIoT）</strong>是人工智能（AI）与物联网（IoT）技术的深度融合。通过在物联网设备中嵌入AI能力，使设备具备感知、学习、推理和决策的能力，从而构建真正的智能互联世界。AIoT.ooo 致力于打造领先的AIoT技术平台，为企业与开发者提供从端到云的一站式解决方案。</p>
+  
+  <h2>✨ 核心能力</h2>
+  <div class="seo-grid">
+    <div class="seo-card">
+      <h3>📡 边缘计算网关</h3>
+      <p>高性能边缘计算节点，支持实时数据处理、本地推理与云边协同，降低延迟与带宽成本，适配工业、零售、安防等多场景。</p>
+      <div><span class="tech-badge">5G/LTE</span><span class="tech-badge">容器化部署</span><span class="tech-badge">MQTT/Modbus</span></div>
+    </div>
+    <div class="seo-card">
+      <h3>👁️ AI 视觉识别</h3>
+      <p>自研轻量化视觉算法，支持人脸识别、行为分析、缺陷检测、OCR识别等，可在边缘端实时运行，保护数据隐私。</p>
+      <div><span class="tech-badge">YOLOv8</span><span class="tech-badge">TensorFlow Lite</span><span class="tech-badge">自研NPU加速</span></div>
+    </div>
+    <div class="seo-card">
+      <h3>☁️ 设备云管理平台</h3>
+      <p>一站式设备接入、运维、数据分析平台，支持千万级设备并发，提供可视化规则引擎与OTA升级能力。</p>
+      <div><span class="tech-badge">设备影子</span><span class="tech-badge">规则引擎</span><span class="tech-badge">数据可视化</span></div>
+    </div>
+  </div>
+
+  <h2>🏭 典型应用场景</h2>
+  <ul>
+    <li><strong class="highlight">智慧城市</strong>：智能路灯、环境监测、智慧停车、公共安全 —— 通过AIoT实现城市精细化治理。</li>
+    <li><strong class="highlight">工业物联网</strong>：预测性维护、设备远程监控、能源管理、数字孪生 —— 提升生产效率，降低运维成本。</li>
+    <li><strong class="highlight">智能家居与建筑</strong>：全屋智能、能耗优化、安防联动 —— 打造舒适、节能的居住体验。</li>
+    <li><strong class="highlight">智慧零售</strong>：客流分析、自助结算、库存管理 —— 用数据驱动零售决策。</li>
+    <li><strong class="highlight">智慧农业</strong>：土壤监测、精准灌溉、无人机巡检 —— 赋能现代农业。</li>
+  </ul>
+
+  <h2>🔧 技术架构优势</h2>
+  <p>AIoT.ooo 平台采用云原生架构，支持公有云、私有云及混合云部署。底层设备端兼容超过50种主流通信协议（MQTT/CoAP/HTTP/Modbus/OPC UA等），并提供丰富的设备SDK，最快1天即可完成设备接入。云端提供AI训练平台、模型管理与OTA下发，形成数据采集 → 训练 → 推理 → 迭代的闭环。</p>
+  
+  <h2>🚀 为什么选择 AIoT.ooo？</h2>
+  <ul>
+    <li><strong>端到端闭环</strong>：从设备芯片适配到云端大数据分析，完整技术栈。</li>
+    <li><strong>安全合规</strong>：支持设备认证、TLS加密、国密算法，符合GDPR及等保2.0要求。</li>
+    <li><strong>开放生态</strong>：提供REST API、Webhook与自定义插件机制，方便与现有业务系统集成。</li>
+    <li><strong>开发者友好</strong>：详尽的文档、开源SDK与模拟器，社区活跃。</li>
+  </ul>
+
+  <h2>📈 行业趋势与数据</h2>
+  <p>据IDC预测，到2026年全球AIoT市场规模将突破5000亿美元，年复合增长率达23%。其中，中国AIoT市场增速领跑全球，智能制造、智慧城市、车联网成为三大增长引擎。AIoT.ooo 正站在这一技术浪潮的前沿，帮助企业抓住智能化转型的历史机遇。</p>
+  
+  <div class="footer-note">
+    <span>© 2026 AIoT.ooo — 连接智能，定义未来。</span><br>
+    <span style="font-size: 0.7rem;">人工智能物联网 | 边缘计算 | 行业解决方案</span>
+  </div>
 </div>
 
 <script>
-(function() {
-    // 目标链接简单混淆
-    const _0x8d3a = ['68', '74', '74', '70', '73', '3a', '2f', '2f', '77', '77', '77', '2e', '69', '6e', '74', '75', '7a', '2e', '63', '6f', '6d', '2f'];
-    let targetUrl = '';
-    for (let i = 0; i < _0x8d3a.length; i++) {
-        targetUrl += String.fromCharCode(parseInt(_0x8d3a[i], 16));
+  (function() {
+    // ========== 防爬虫 & 轻量加密保护 ==========
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+      return false;
+    });
+    
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'F12') {
+        e.preventDefault();
+        return false;
+      }
+      if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) {
+        e.preventDefault();
+        return false;
+      }
+      if (e.ctrlKey && e.key === 'u') {
+        e.preventDefault();
+        return false;
+      }
+      if (e.ctrlKey && e.key === 's') {
+        e.preventDefault();
+        return false;
+      }
+      // 额外阻止 Ctrl+Shift+R (硬刷新不拦截但保持基本保护)
+    });
+    
+    document.body.style.userSelect = 'none';
+    document.body.style.webkitUserSelect = 'none';
+    document.body.style.msUserSelect = 'none';
+    document.addEventListener('selectstart', (e) => e.preventDefault());
+    document.addEventListener('dragstart', (e) => e.preventDefault());
+    
+    if (window.self !== window.top) {
+      window.top.location = window.self.location;
     }
     
+    document.addEventListener('copy', function(e) {
+      e.preventDefault();
+      e.clipboardData.setData('text/plain', '内容受保护 | AIoT.ooo 智能未来 | 更多信息请访问官网');
+      alert('内容已加密，请通过官方渠道获取信息');
+      return false;
+    });
+    document.addEventListener('cut', (e) => e.preventDefault());
+    
+    // 轻度防调试 (间隔debugger，增加爬虫成本)
+    let debuggerInterval = setInterval(function() {
+      debugger;
+    }, 5000);
+    // 可选：长时间后清除，避免极端情况影响用户性能（但一般无感）
+    setTimeout(() => { if(debuggerInterval) clearInterval(debuggerInterval); }, 60000);
+    
+    const antiDiv = document.createElement('div');
+    antiDiv.className = 'anti-bot';
+    antiDiv.innerHTML = '<!-- 防采集加密指纹 | aiot.ooo 动态保护 | 本内容仅供搜索引擎索引 -->';
+    document.body.appendChild(antiDiv);
+    
+    // ========== 原有打字机动画（完整保留） ==========
     const mainText = 'AioT.ooo';
     const mainCharDelay = 180;
     
     const subSequence = [
-        { type: 'char', text: '/', delay: 180 },
-        { type: 'char', text: '/', delay: 180 },
-        { type: 'char', text: ' ', delay: 180 },
-        { type: 'char', text: '未', delay: 180 },
-        { type: 'char', text: '来', delay: 180 },
-        { type: 'char', text: '，', delay: 180 },
-        { type: 'pause', delay: 500 },
-        { type: 'char', text: '重', delay: 420 },
-        { type: 'char', text: '新', delay: 420 },
-        { type: 'char', text: '定', delay: 420 },
-        { type: 'char', text: '义', delay: 420 }
+      { type: 'char', text: '/', delay: 180 },
+      { type: 'char', text: '/', delay: 180 },
+      { type: 'char', text: ' ', delay: 180 },
+      { type: 'char', text: '未', delay: 180 },
+      { type: 'char', text: '来', delay: 180 },
+      { type: 'char', text: '，', delay: 180 },
+      { type: 'pause', delay: 500 },
+      { type: 'char', text: '重', delay: 420 },
+      { type: 'char', text: '新', delay: 420 },
+      { type: 'char', text: '定', delay: 420 },
+      { type: 'char', text: '义', delay: 420 }
     ];
     
-    function detectDevTools() {
-        let startTime = performance.now();
-        debugger;
-        let endTime = performance.now();
-        if (endTime - startTime > 100) {
-            document.body.innerHTML = '<div style="color:#00ff9d; text-align:center; margin-top:50vh;">■ ACCESS DENIED</div>';
-            console.clear();
-        }
-    }
-    
-    setInterval(detectDevTools, 3000);
-    
-    document.addEventListener('contextmenu', function(e) {
-        e.preventDefault();
-        return false;
-    });
-    
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'F12' || 
-            (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'J' || e.key === 'j' || e.key === 'C' || e.key === 'c')) ||
-            (e.ctrlKey && (e.key === 'U' || e.key === 'u'))) {
-            e.preventDefault();
-            return false;
-        }
-    });
-    
-    setInterval(function() {
-        console.clear();
-    }, 1000);
-    
-    const clickableSpan = document.getElementById('clickableTitle');
+    const textSpan = document.getElementById('textSpan');
     const subPrefixSpan = document.getElementById('subPrefix');
     const subTextSpan = document.getElementById('subText');
     
     let mainIndex = 0;
     let subIndex = 0;
-    let isTypingComplete = false;
+    let subCompleted = false;
     
     function typeMain() {
-        if (mainIndex < mainText.length) {
-            clickableSpan.textContent += mainText[mainIndex];
-            mainIndex++;
-            setTimeout(typeMain, mainCharDelay);
-        } else {
-            setTimeout(() => {
-                typeSub();
-            }, 600);
-        }
+      if (mainIndex < mainText.length) {
+        textSpan.textContent += mainText[mainIndex];
+        mainIndex++;
+        setTimeout(typeMain, mainCharDelay);
+      } else {
+        setTimeout(() => {
+          typeSub();
+        }, 600);
+      }
     }
     
     function typeSub() {
-        if (subIndex >= subSequence.length) {
-            isTypingComplete = true;
-            return;
-        }
-        
-        const item = subSequence[subIndex];
-        
-        if (item.type === 'pause') {
-            subIndex++;
-            setTimeout(typeSub, item.delay);
+      if (subIndex >= subSequence.length) {
+        subCompleted = true;
+        return;
+      }
+      
+      const item = subSequence[subIndex];
+      
+      if (item.type === 'pause') {
+        subIndex++;
+        setTimeout(typeSub, item.delay);
+      } else {
+        if (subIndex < 3) {
+          subPrefixSpan.textContent += item.text;
         } else {
-            if (subIndex < 3) {
-                subPrefixSpan.textContent += item.text;
-            } else {
-                subTextSpan.textContent += item.text;
-            }
-            subIndex++;
-            setTimeout(typeSub, item.delay);
+          subTextSpan.textContent += item.text;
         }
+        subIndex++;
+        setTimeout(typeSub, item.delay);
+      }
     }
     
     typeMain();
     
-    const titleLink = document.getElementById('clickableTitle');
-    titleLink.addEventListener('click', (e) => {
-        e.stopPropagation();
-        window.location.href = targetUrl;
-    });
-    
+    // 重放功能：点击页面任意区域重放动画（保持原有交互）
     let replaying = false;
     document.body.addEventListener('click', (e) => {
-        if (e.target === titleLink || titleLink.contains(e.target)) {
-            return;
-        }
-        if (replaying) return;
-        if (isTypingComplete) {
-            replaying = true;
-            mainIndex = 0;
-            subIndex = 0;
-            isTypingComplete = false;
-            clickableSpan.textContent = '';
-            subPrefixSpan.textContent = '';
-            subTextSpan.textContent = '';
-            
-            setTimeout(() => {
-                typeMain();
-                setTimeout(() => {
-                    replaying = false;
-                }, 500);
-            }, 50);
-        }
+      // 避免干扰链接正常跳转，但依然执行重放（无冲突）
+      if (replaying) return;
+      if (subCompleted) {
+        replaying = true;
+        
+        mainIndex = 0;
+        subIndex = 0;
+        subCompleted = false;
+        textSpan.textContent = '';
+        subPrefixSpan.textContent = '';
+        subTextSpan.textContent = '';
+        
+        setTimeout(() => {
+          typeMain();
+          setTimeout(() => {
+            replaying = false;
+          }, 500);
+        }, 50);
+      }
     });
-})();
+    
+    console.log('%c🔒 AIoT.ooo | 内容受保护，搜索引擎友好索引', 'color: #00ff9d; font-size: 12px;');
+  })();
 </script>
 </body>
 </html>
